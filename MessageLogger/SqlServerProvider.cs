@@ -10,6 +10,9 @@ namespace Umbe.Web.MessageLogger
         private string _connectionString;
 
         private string _tableName = "RawLogging";
+
+        public override string Name => "SqlServerProvider";
+
         private const string InitSql = @"
 IF NOT EXISTS(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{0}')
 BEGIN

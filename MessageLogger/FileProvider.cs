@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.IO;
 using System.Web.Hosting;
 
@@ -22,7 +23,21 @@ namespace Umbe.Web.MessageLogger
         {
             base.Initialize(name, config);
 
-            _storagePath =  HostingEnvironment.MapPath(config["storagePath"]);
+            _storagePath = config["storagePath"];
+            if (_storagePath.StartsWith("~"))
+            {
+                _storagePath = HostingEnvironment.MapPath(_storagePath);
+            }
+            else
+            {
+                var stgUri = new Uri(_storagePath);
+                if (!stgUri.IsAbsoluteUri && !stgUri.IsUnc)
+                {
+                    _storagePath = HostingEnvironment.MapPath(_storagePath);
+                }
+            }
+
+            
         }
 
         public override void SerializeRequest(RequestMessage message)
