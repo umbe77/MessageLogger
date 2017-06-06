@@ -1,4 +1,6 @@
-﻿namespace Umbe.Web.MessageLogger
+﻿using System.Text;
+
+namespace Umbe.Web.MessageLogger
 {
     public class ResponseMessage : Message
     {
@@ -8,11 +10,11 @@
         {
             var v = $"{Version.Major}.{Version.Minor}";
 
-            var message = $@"HTTP/{v} {Status}
-{Headers}
-{Content}";
-
-            return message;
+            var message = new StringBuilder();
+            message.AppendLine($"HTTP/{v} {Status}");
+            message.AppendLine($"{Headers}");
+            message.AppendLine($"{Content}");
+            return message.ToString();
         }
 
     }

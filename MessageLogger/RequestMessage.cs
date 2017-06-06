@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Umbe.Web.MessageLogger
 {
@@ -11,11 +12,11 @@ namespace Umbe.Web.MessageLogger
         {
             var v = $"{Version.Major}.{Version.Minor}";
 
-            var message = $@"{Method} {RequestUri.AbsolutePath} HTTP/{v}
-{Headers}
-{Content}";
-
-            return message;
+            var message =new StringBuilder();
+            message.AppendLine($"{Method} {RequestUri.AbsolutePath} HTTP/{v}");
+            message.AppendLine($"{Headers}");
+            message.AppendLine($"{Content}");
+            return message.ToString();
         }
 
     }

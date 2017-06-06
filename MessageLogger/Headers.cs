@@ -12,7 +12,7 @@ namespace Umbe.Web.MessageLogger
 
             foreach (var header in this)
             {
-                headers.AppendFormat("{0}: {1}\n", header.Key, header.Value);
+                headers.AppendLine($"{header.Key}: {header.Value}");
             }
 
             return headers.ToString();
