@@ -24,7 +24,7 @@ namespace MessageLogging.Controllers
         {
             return new HelloResponse
             {
-                Message = string.Format("{0} {1}!!!", req.Message, req.Name)
+                Message = $"{req.Message} {req.Name}!!!"
             };
         }
     }

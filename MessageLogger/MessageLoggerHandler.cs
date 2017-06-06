@@ -18,7 +18,7 @@ namespace Umbe.Web.MessageLogger
                 return await base.SendAsync(request, cancellationToken);
             }
 
-            var correlationId = string.Format("{0}{1}", DateTime.Now.Ticks, System.Threading.Thread.CurrentThread.ManagedThreadId);
+            var correlationId = $"{DateTime.Now.Ticks}{System.Threading.Thread.CurrentThread.ManagedThreadId}";
 
             var requestContent = await request.Content.ReadAsByteArrayAsync();
             var reqMessage = new RequestMessage

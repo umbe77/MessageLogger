@@ -13,11 +13,11 @@ namespace Umbe.Web.MessageLogger
 
         public override string ToString()
         {
-            var v = string.Format("{0}.{1}", Version.Major, Version.Minor);
+            var v = $"{Version.Major}.{Version.Minor}";
 
-            var message = string.Format(@"{0} {1} HTTP/{2}
-{3}
-{4}", Method, RequestUri.AbsolutePath, v, Headers, Content);
+            var message = $@"{Method} {RequestUri.AbsolutePath} HTTP/{v}
+{Headers}
+{Content}";
 
             return message;
         }

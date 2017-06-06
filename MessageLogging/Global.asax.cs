@@ -21,7 +21,7 @@ namespace MessageLogging
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             MessageLogger.Register(GlobalConfiguration.Configuration);
-            MessageLoggerManager.Activate();
+            //MessageLoggerManager.Activate();
         }
     }
 }

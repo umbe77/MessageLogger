@@ -18,12 +18,6 @@ namespace Umbe.Web.MessageLogger
 
     public class MessageLoggerCollection : ProviderCollection
     {
-        new public MessageLoggerProvider this[string name]
-        {
-            get
-            {
-                return base[name] as MessageLoggerProvider;
-            }
-        }
+        public new MessageLoggerProvider this[string name] => base[name] as MessageLoggerProvider;
     }
 }

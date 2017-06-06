@@ -22,13 +22,7 @@ namespace Umbe.Web.MessageLogger
 
 
 
-        public override string Name
-        {
-            get
-            {
-                return "FileProvider";
-            }
-        }
+        public override string Name => "FileProvider";
 
         public override void Initialize(string name, System.Collections.Specialized.NameValueCollection config)
         {

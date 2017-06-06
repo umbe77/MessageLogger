@@ -12,11 +12,11 @@ namespace Umbe.Web.MessageLogger
 
         public override string ToString()
         {
-            var v = string.Format("{0}.{1}", Version.Major, Version.Minor);
+            var v = $"{Version.Major}.{Version.Minor}";
 
-            var message = string.Format(@"HTTP/{0} {1}
-{2}
-{3}", v, Status, Headers, Content);
+            var message = $@"HTTP/{v} {Status}
+{Headers}
+{Content}";
 
             return message;
         }
