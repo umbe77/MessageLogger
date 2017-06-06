@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.IO;
 using System.Web.Hosting;
 
@@ -19,8 +15,6 @@ namespace Umbe.Web.MessageLogger
     {
 
         private string _storagePath;
-
-
 
         public override string Name => "FileProvider";
 
@@ -45,8 +39,7 @@ namespace Umbe.Web.MessageLogger
             }
 
         }
-
-
+        
         public override void SerializeResponse(ResponseMessage message)
         {
             var fileName = GetStoragePath(message.CorrelationId, FileDirection.Response);
@@ -63,7 +56,7 @@ namespace Umbe.Web.MessageLogger
 
         private string GetStoragePath(string correlationId, FileDirection direction)
         {
-            return Path.Combine(_storagePath, string.Format("{0}_{1}.txt", correlationId, direction));
+            return Path.Combine(_storagePath, $"{correlationId}_{direction}.txt");
         }
     }
 }
